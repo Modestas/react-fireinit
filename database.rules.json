@@ -1,0 +1,100 @@
+{
+  "rules": {
+    "steambot": {
+      ".read": false,
+      ".write": false
+    },
+    "web": {
+      "metadata": {
+        ".read": true,
+        ".write": false
+      },
+      "players": {
+        ".read": true,
+        ".write": false
+      },
+      "postsBoard": {
+        "posts": {
+          ".read": true,
+          "$postId": {
+            ".write": "!data.exists() && newData.exists() && newData.child('author').val() === auth.uid && !data.parent().parent().child('silenced/'+auth.uid).exists()",
+            ".validate": "newData.hasChildren(['author','text'])",
+            "text": {
+              ".validate": "newData.isString() && newData.val().length <= 300"
+            }
+          }
+        }
+      },
+      "users": {
+        "list": {
+          ".read": true,
+          ".write": false
+        },
+        "verifications": {
+          "$userId": {
+            ".read": "$userId === auth.uid",
+            "guesses": {
+              "$guessId": {
+                ".write": "!data.exists() && newData.exists() && $userId === auth.uid",
+                ".validate": "newData.hasChild('value') && newData.parent().parent().child('disabled').val() === false && newData.parent().parent().child('finished').val() === false",
+                "value": {
+                  ".validate": "newData.isString()"
+                }
+              }
+            }
+          }
+        },
+        "questions": {
+          "$questionId": {
+            "question": {
+              ".read": "data.parent().parent().parent().child('verifications/'+auth.uid+'/questionId').val() === $questionId"
+            },
+            "answer": {
+              ".read": false
+            },
+            ".read": true
+          }
+        }
+      }
+    },
+    "queues": {
+      "bot_player_dota_profile": {
+        "tasks": {
+          ".indexOn": "_state"
+        }
+      },
+      "bot_player_rating": {
+        "tasks": {
+          ".indexOn": "_state"
+        }
+      },
+      "bot_player_steam_profile": {
+        "tasks": {
+          ".indexOn": "_state"
+        }
+      },
+      "bot_players_full_refresh": {
+        "tasks": {
+          ".indexOn": "_state"
+        }
+      },
+      "bot_player_full_refresh": {
+        "tasks": {
+          ".indexOn": "_state"
+        }
+      },
+      "web_player_sign_in": {
+        "tasks": {
+          ".indexOn": "_state",
+          "$taskId": {
+            ".write": "newData.child('steamId').val() === auth.uid",
+            ".validate": "newData.hasChildren(['steamId'])",
+            "steamId": {
+              ".validate": "newData.val().matches(/[0-9]{17}$/)"
+            }
+          }
+        }
+      }
+    }
+  }
+}
