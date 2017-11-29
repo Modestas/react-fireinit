@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "development-react-fireinit",
+    "prod": "react-fireinit"
+  }
+}
