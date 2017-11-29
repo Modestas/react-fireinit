@@ -19,5 +19,8 @@ npm run start
 ```
 
 ## How was it made?
-* [material-ui v1](https://github.com/mui-org/material-ui/tree/v1-beta/examples/create-react-app) example
-* [firebase init](https://github.com/firebase/firebase-tools)
+- [x] [material-ui v1](https://github.com/mui-org/material-ui/tree/v1-beta/examples/create-react-app) example
+- [x] [firebase init](https://github.com/firebase/firebase-tools)
+- [ ] Configure [react-redux-firebase v2](https://github.com/prescottprue/react-redux-firebase)
+- [ ] Environmental setup
+- [ ] Google Analytics
