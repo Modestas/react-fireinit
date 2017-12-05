@@ -1,17 +1,9 @@
 /* eslint-disable flowtype/require-valid-file-annotation */
-
 import { create, SheetsRegistry } from 'jss';
 import preset from 'jss-preset-default';
-import { createMuiTheme } from 'material-ui/styles';
-import { purple, green } from 'material-ui/colors';
-import createGenerateClassName from 'material-ui/styles/createGenerateClassName';
+import theme from './theme';
 
-const theme = createMuiTheme({
-  palette: {
-    primary: purple,
-    secondary: green,
-  },
-});
+import createGenerateClassName from 'material-ui/styles/createGenerateClassName';
 
 // Configure JSS
 const jss = create(preset());
