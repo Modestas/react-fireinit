@@ -9,13 +9,13 @@
   "dependencies": {
     "jss": "^8.1.0",
     "jss-preset-default": "^3.0.0",
-    "material-ui": "next",
-    "prop-types": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-jss": "latest",
-    "react-scripts": "latest",
-    "recompose": "latest"
+    "material-ui": "1.0.0-beta.22",
+    "prop-types": "15.6.0",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "react-jss": "8.1.0",
+    "react-scripts": "1.0.17",
+    "recompose": "0.26.0",
   },
   "scripts": {
     "start": "react-scripts start",
