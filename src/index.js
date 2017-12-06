@@ -1,10 +1,17 @@
-// @flow
-
 import React from 'react';
 import { render } from 'react-dom';
-import Index from './pages/index';
+import { BrowserRouter as Router } from 'react-router-dom';
+import App from './containers/App';
+import configureStore from './store/configureStore';
+
+const store = configureStore();
 
 const rootElement = document.querySelector('#root');
 if (rootElement) {
-  render(<Index />, rootElement);
+  render(
+    <Router>
+      <App store={store}/>
+    </Router>,
+    rootElement
+  );
 }
