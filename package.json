@@ -1,7 +1,11 @@
 {
   "name": "create-react-app",
   "version": "1.0.0",
-  "private": true,
+  "author": {
+    "name": "Modestas",
+    "url": "https://github.com/Modestas"
+  },
+  "license": "MIT",
   "dependencies": {
     "jss": "^8.1.0",
     "jss-preset-default": "^3.0.0",
