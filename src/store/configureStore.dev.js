@@ -4,6 +4,7 @@ import { firebase as firebaseConfig, reduxFirebase as reduxFirebaseConfig } from
 import { createStore, applyMiddleware, compose } from 'redux';
 import { createLogger } from 'redux-logger';
 import rootReducer from 'reducers';
+import DevTools from 'containers/DevTools';
 
 firebase.initializeApp(firebaseConfig);
 
@@ -13,7 +14,8 @@ const configureStore = preloadedState => {
     preloadedState,
     compose(
       reactReduxFirebase(firebase, reduxFirebaseConfig),
-      applyMiddleware(createLogger())
+      applyMiddleware(createLogger()),
+      DevTools.instrument()
     )
   );
 
