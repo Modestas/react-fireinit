@@ -1,30 +1,16 @@
 import React from 'react';
-import JssProvider from 'react-jss/lib/JssProvider';
-import { withStyles, MuiThemeProvider } from 'material-ui/styles';
-import createContext from 'styles/createContext';
+import { MuiThemeProvider } from 'material-ui/styles';
+import theme from 'styles/theme';
 import Routes from 'routes';
+import Reboot from 'material-ui/Reboot';
 import HeaderBar from 'components/HeaderBar';
 
-const styles = theme => ({
-  '@global': {
-    html: {
-      background: theme.palette.background.default,
-        WebkitFontSmoothing: 'antialiased', // Antialiasing.
-        MozOsxFontSmoothing: 'grayscale', // Antialiasing.
-    },
-    body: {
-      margin: 0,
-    },
-  },
-});
+const App = ({ store }) =>
+  <MuiThemeProvider theme={theme}>
+    <Reboot/>
+    <HeaderBar/>
+    <Routes/>
+  </MuiThemeProvider>;
 
-const context = createContext();
-const App = () =>
-  <JssProvider registry={context.sheetsRegistry} jss={context.jss}>
-    <MuiThemeProvider theme={context.theme} sheetsManager={context.sheetsManager}>
-      <HeaderBar/>
-      <Routes/>
-    </MuiThemeProvider>
-  </JssProvider>;
 
-export default withStyles(styles)(App);
+export default App;
