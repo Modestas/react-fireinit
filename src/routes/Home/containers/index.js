@@ -3,6 +3,8 @@ import { compose } from 'redux'
 import { connect } from 'react-redux';
 import { firebaseConnect } from 'react-redux-firebase';
 import HomeDescriptor from '../components/HomeDescriptor';
+import SEO from 'components/SeoHead';
+import meta from './meta.json';
 
 const enhance = compose(
     firebaseConnect([
@@ -14,7 +16,9 @@ const enhance = compose(
 );
 
 const Home = ({ home }) =>
-  <HomeDescriptor description={home && home.description}/>;
-
+  <div>
+    <SEO {...meta}/>
+    <HomeDescriptor description={home && home.description}/>;
+  </div>;
 
 export default enhance(Home);
