@@ -26,3 +26,4 @@ npm run start
 - [x] Configure [react-redux-firebase v2.x](https://github.com/prescottprue/react-redux-firebase)
 - [x] Environmental setup
 - [x] Google Analytics with [react-ga](https://github.com/react-ga/react-ga)
+- [x] SEO & Document Head with [react-helmet](https://github.com/nfl/react-helmet)
